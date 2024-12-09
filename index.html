@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Kazanma Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        .game-container {
+            margin-top: 50px;
+        }
+        .coin-display {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        .instructions {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .celebrate {
+            font-size: 1.5rem;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Tuşuyla Coin Kazan!</h1>
+    <div class="game-container">
+        <div class="coin-display">Toplam Coin: <span id="coinCount">0</span></div>
+        <div class="instructions">Enter tuşuna basarak coin kazanabilirsiniz!</div>
+        <div id="celebrateMessage" class="celebrate"></div>
+    </div>
+
+    <script>
+        let coinCount = 0;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                coinCount++;
+                document.getElementById('coinCount').textContent = coinCount;
+
+                // Kutlama mesajı için
+                const celebrateMessage = document.getElementById('celebrateMessage');
+                if (coinCount % 10 === 0) {
+                    celebrateMessage.textContent = "Harika! 10 Coin topladınız!";
+                } else {
+                    celebrateMessage.textContent = "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
